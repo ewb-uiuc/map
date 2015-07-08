@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <title>Info windows</title>
+    <style>
+      html, body, #map-canvas {
+        height: 100%;
+        margin: 0px;
+        padding: 0px
+      }
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <script>
+// This example displays a marker at the center of Australia.
+// When the user clicks the marker, an info window opens.
+
+function initialize() {
+  var myLatlng = new google.maps.LatLng(6.468151,10.8586119999);
+  var myLatlng2 = new google.maps.LatLng(6.171958, 7.335770000);
+  var myLatlng3 = new google.maps.LatLng(14.771645, -91.266431);
+var myLatlng4 = new google.maps.LatLng(4.150227, 9.2414760000);
+  var mapOptions = {
+    zoom: 4,
+    center: myLatlng
+  };
+
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+
+  var contentString = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Ntisaw Water Project</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Ntisaw Water Project</b> The partnership has completed a water' +
+      'distribution system and six latrines in the village of Ntisaw in '+
+      'Cameroon. After an assessment trip in May 2013, the parternship is '+
+      'designing a new water source to provide clean drinking water '+
+      'to a rural community</p>'+
+      
+      '</div>'+
+      '</div>';
+ var contentString2 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Nigeria Water Project</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Nigeria Water Project</b> The team first traveled to Adu Achi in 2006' +
+      'where they collected preliminary water use and demand data, conducted elevation '+
+      'surveying and mapping, investigated potential sites for borehole and storage tank '+
+      'construction, and tested water quality. It was at this point that developing a well '+
+      'to a clean aquifer was shown to be the most feasible option.</p>'+
+      
+      '</div>'+
+      '</div>';
+
+var contentString3 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Guatemala Water Project</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Guatemala Water Project</b> The water filtration project in Socorro, Guatemala' +
+      'is a success with over 1000 biosand filters implemented in households in ten communities '+
+      'within the region. A substantial improvement of health condition of the residents from '+
+      'these regions was observed after the implementation of the filters and the NGO is working'+
+      'with more communities to bring in to the biosand filters to improve' +
+      'drinking water quality.</p>'+
+      
+      '</div>'+
+      '</div>';
+
+var contentString4 = '<div id="content">'+
+      '<div id="siteNotice">'+
+      '</div>'+
+      '<h1 id="firstHeading" class="firstHeading">Soppo Likoko Power Project</h1>'+
+      '<div id="bodyContent">'+
+      '<p><b>Soppo Likoko Power Project</b> The Soppo Likoko Power Project aims to provide electricity' +
+      'to 50 households and 4 schools in Soppo Likoko, Cameroon by constructing an electrical grid system. '+
+      'This grid system will consist of transmission lines, poles, and in-house wiring. In addition to the '+
+      'construction of the system, the project team is working on creating an education program in order to'+
+      'ensure that safe electricity usage is practiced after the system' +
+      'has been implemented.</p>'+
+      
+      '</div>'+
+      '</div>';
+
+  var infowindow = new google.maps.InfoWindow({
+      content: contentString
+  });
+  var infowindow2 = new google.maps.InfoWindow({
+      content: contentString2
+  });
+ var infowindow3 = new google.maps.InfoWindow({
+      content: contentString3
+  });
+
+ var infowindow4 = new google.maps.InfoWindow({
+      content: contentString4
+  });
+
+  var marker = new google.maps.Marker({
+      position: myLatlng,
+      map: map,
+      title: 'Ntisaw Water Project'
+  });
+
+  var marker2 = new google.maps.Marker({
+      position: myLatlng2,
+      map: map,
+      title: 'Nigeria Water Project'
+  });
+
+var marker3 = new google.maps.Marker({
+      position: myLatlng3,
+      map: map,
+      title: 'Guatemala Water Project'
+  });
+
+var marker4 = new google.maps.Marker({
+      position: myLatlng4,
+      map: map,
+      title: 'Soppo Likoko Power Project'
+  });
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+  });
+   google.maps.event.addListener(marker2, 'click', function() {
+    infowindow2.open(map, marker2);
+  });
+  google.maps.event.addListener(marker3, 'click', function() {
+    infowindow3.open(map, marker3);
+  });
+  google.maps.event.addListener(marker4, 'click', function() {
+    infowindow4.open(map, marker4);
+  });
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+
+    </script>
+  </head>
+  <body>
+    <div id="map-canvas"></div>
+  </body>
+</html>
